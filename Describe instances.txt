@@ -1,0 +1,24 @@
+# describe running ec2 instances 
+
+import boto3
+
+def lambda_handler(event, context):
+    ec2 = boto3.client('ec2')
+
+    response = ec2.describe_instances( Filters=[{'Name':'instance-state-name', 'Values':['running']}])
+    
+    all_instances = """
+    """
+    for reservation in response['Reservations']:
+        for instance in reservation['Instances']:
+            (instance['Placement']['AvailabilityZone'])
+            (instance['InstanceId'])
+            (instance['PublicIpAddress'])
+            
+            return "Availability Zone %s, InstanceId %s, Public Ip Address  %s" % (instance['Placement']['AvailabilityZone'], instance['InstanceId'], instance['PublicIpAddress'])
+            
+        
+
+
+
+
